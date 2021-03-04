@@ -12,9 +12,12 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 
+#include "myi2c.h"
 
 void app_main(void)
 {
+    myi2c_init();
+
     printf("Hello world!\n");
 
     /* Print chip information */
