@@ -12,9 +12,12 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 
+#include "myuart.h"
 
 void app_main(void)
 {
+    myuart_init();
+
     printf("Hello world!\n");
 
     /* Print chip information */
@@ -34,6 +37,9 @@ void app_main(void)
         printf("Restarting in %d seconds...\n", i);
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
+
+    myuart_test();
+    
     printf("Restarting now.\n");
     fflush(stdout);
     esp_restart();
