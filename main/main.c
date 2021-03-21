@@ -12,13 +12,12 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 
+#include "relay.h"
 #include "shell/shell.h"
 
 void app_main(void)
 {
     printf("Hello world!\n");
-
-    shell_start();
 
     /* Print chip information */
     esp_chip_info_t chip_info;
@@ -32,4 +31,7 @@ void app_main(void)
 
     printf("%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
+
+    relay_init();
+    shell_start();
 }
