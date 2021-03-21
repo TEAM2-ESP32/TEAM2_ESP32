@@ -1,4 +1,16 @@
 idf_component_register(
-    SRCS "main.c"
-    INCLUDE_DIRS ""
+    SRCS
+    	main.c
+	relay.c
+	shell/shell.c
+	shell/commands.c
+	shell/cmd_relay.c
+	../external/libmcu/components/shell/src/shell.c
+	../external/libmcu/components/shell/src/commands/cmd_exit.c
+	../external/libmcu/components/shell/src/commands/cmd_help.c
+	../external/libmcu/components/shell/src/commands/cmd_memdump.c
+    INCLUDE_DIRS
+    	.
+	../external/libmcu/components/shell/include
+	../external/libmcu/components/common/include
 )
