@@ -34,4 +34,5 @@ void app_main(void)
 
     relay_init();
     shell_start();
+    //ADD
 }
