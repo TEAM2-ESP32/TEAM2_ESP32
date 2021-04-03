@@ -1,10 +1,12 @@
 idf_component_register(
     SRCS
-    	main.c
+  main.c
 	relay.c
+	adcread.c
 	shell/shell.c
 	shell/commands.c
 	shell/cmd_relay.c
+	shell/cmd_adcread.c
 	../external/libmcu/components/shell/src/shell.c
 	../external/libmcu/components/shell/src/commands/cmd_exit.c
 	../external/libmcu/components/shell/src/commands/cmd_help.c
