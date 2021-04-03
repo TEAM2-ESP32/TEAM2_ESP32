@@ -11,13 +11,15 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_spi_flash.h"
+#include "esp_adc_cal.h"
 
 #include "relay.h"
+#include "adcread.h"
 #include "shell/shell.h"
 
 void app_main(void)
 {
-    printf("Hello world! test\n");
+    printf("Hello world!\n");
 
     /* Print chip information */
     esp_chip_info_t chip_info;
@@ -33,6 +35,6 @@ void app_main(void)
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
     relay_init();
+    adc_init();
     shell_start();
-    //ADD
 }
