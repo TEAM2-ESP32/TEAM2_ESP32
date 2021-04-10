@@ -19,6 +19,6 @@
     "adc.h": "c",
     "adcread.h": "c"
   },
-  "idf.portWin": "COM9",
+  "idf.portWin": "COM5",
   "idf.flashType": "UART"
 }

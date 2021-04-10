@@ -13,7 +13,7 @@ shell_cmd_error_t shell_cmd_adcread(int argc, const char *argv[], const void *en
 
 	int ch = argv[1][0] - '0';
 
-	if (ch < 1 || ch > 2) {
+	if (ch < 1 || ch > 3) {
 		io->write("Invalid parameters\r\n", 20);
 		return SHELL_CMD_INVALID_PARAM;
 	}
@@ -24,6 +24,9 @@ shell_cmd_error_t shell_cmd_adcread(int argc, const char *argv[], const void *en
 		break;
 	case 2:
 		io->write("adcread 2\r\n", 11);
+		break;
+	case 3:
+		io->write("adcread 3\r\n", 11);
 		break;
 	default:
 		break;

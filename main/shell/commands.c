@@ -6,7 +6,7 @@ static const shell_cmd_t commands[] = {
 	{"help", shell_cmd_help, "List available commands" },
 	{"md", shell_cmd_memdump, "md <addr> <len>" },
 	{"relay", shell_cmd_relay, "relay <1|2> <0|1>" },
-	{"adcread", shell_cmd_adcread, "adcread <1|2>"},
+	{"adcread", shell_cmd_adcread, "adcread <1|2|3>"},
 	{ NULL, NULL, NULL },
 };
 

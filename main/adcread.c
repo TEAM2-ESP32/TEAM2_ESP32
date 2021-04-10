@@ -7,6 +7,7 @@
 #define NO_OF_SAMPLES   64
 #define A1_CHANNEL			ADC_CHANNEL_0     //GPIO36(SVP) if ADC1
 #define A2_CHANNEL			ADC_CHANNEL_3     //GPIO39(SCN) if ADC1
+#define A3_CHANNEL			ADC_CHANNEL_6     //GPIO34 if ADC1
 
 static esp_adc_cal_characteristics_t *adc_chars;
 static const adc_bits_width_t width = ADC_WIDTH_BIT_12;
@@ -67,6 +68,9 @@ void adc_read(int ch)
 	case 2:
 		channel = A2_CHANNEL;
 		break;
+  case 3:
+    channel = A3_CHANNEL;
+    break;
 	default:
 		break;
 	}
@@ -93,6 +97,20 @@ void adc_read(int ch)
   adc_reading /= NO_OF_SAMPLES;
   //Convert adc_reading to voltage in mV
   uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-  printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+  float Ampere = (float)adc_reading / 136.5;
+  switch(ch) {
+    case 1: 
+      printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+      break;
+    case 2:
+      printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+      break;
+    case 3:
+      printf("Raw: %d\tVoltage: %dmV\tAmpere: %.1f A\n", adc_reading, voltage, Ampere);
+      //printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+      break;
+    default:
+      break;
+  }
   //vTaskDelay(pdMS_TO_TICKS(1000));
 }
