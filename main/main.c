@@ -16,6 +16,10 @@
 #include "relay.h"
 #include "adcread.h"
 #include "shell/shell.h"
+#include "wifi.h"
+
+#define TEST_AP_SSID			""
+#define TEST_AP_PASS			""
 
 void app_main(void)
 {
@@ -37,4 +41,7 @@ void app_main(void)
     relay_init();
     adc_init();
     shell_start();
+
+    wifi_init();
+    wifi_connect(TEST_AP_SSID, TEST_AP_PASS, NULL);
 }

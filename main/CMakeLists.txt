@@ -1,8 +1,9 @@
 idf_component_register(
     SRCS
-  main.c
+    	main.c
 	relay.c
 	adcread.c
+	wifi.c
 	shell/shell.c
 	shell/commands.c
 	shell/cmd_relay.c
