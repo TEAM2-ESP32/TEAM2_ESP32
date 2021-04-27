@@ -1,19 +1,23 @@
 idf_component_register(
     SRCS
-    	main.c
+  		main.c
 	relay.c
 	adcread.c
+    dht.c
 	wifi.c
 	shell/shell.c
 	shell/commands.c
 	shell/cmd_relay.c
 	shell/cmd_adcread.c
+    shell/cmd_dht.c
 	../external/libmcu/components/shell/src/shell.c
 	../external/libmcu/components/shell/src/commands/cmd_exit.c
 	../external/libmcu/components/shell/src/commands/cmd_help.c
 	../external/libmcu/components/shell/src/commands/cmd_memdump.c
+    ../components/dht_espidf/src/dht_espidf.c
     INCLUDE_DIRS
     	.
 	../external/libmcu/components/shell/include
 	../external/libmcu/components/common/include
+    ../components/dht_espidf/include
 )

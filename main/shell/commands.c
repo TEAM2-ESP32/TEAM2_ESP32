@@ -7,6 +7,7 @@ static const shell_cmd_t commands[] = {
 	{"md", shell_cmd_memdump, "md <addr> <len>" },
 	{"relay", shell_cmd_relay, "relay <1|2> <0|1>" },
 	{"adcread", shell_cmd_adcread, "adcread <1|2|3>"},
+    {"dht", shell_cmd_dht, "Read DHT sensor"},
 	{ NULL, NULL, NULL },
 };
 

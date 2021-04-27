@@ -17,9 +17,11 @@
 #include "adcread.h"
 #include "shell/shell.h"
 #include "wifi.h"
+#include "dht.h"
 
-#define TEST_AP_SSID			""
-#define TEST_AP_PASS			""
+#define TEST_AP_SSID	""
+#define TEST_AP_PASS	""
+
 
 void app_main(void)
 {
@@ -38,10 +40,10 @@ void app_main(void)
     printf("%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
             (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
+    wifi_init();
+    wifi_connect(TEST_AP_SSID, TEST_AP_PASS, NULL);
+
     relay_init();
     adc_init();
     shell_start();
-
-    wifi_init();
-    wifi_connect(TEST_AP_SSID, TEST_AP_PASS, NULL);
 }

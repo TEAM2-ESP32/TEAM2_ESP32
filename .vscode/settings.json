@@ -17,8 +17,9 @@
     "uart.h": "c",
     "relay.h": "c",
     "adc.h": "c",
-    "adcread.h": "c"
-  },
-  "idf.portWin": "COM5",
+    "adcread.h": "c",
+    "shell.h": "c"
+},
+  "idf.portWin": "COM9",
   "idf.flashType": "UART"
 }
