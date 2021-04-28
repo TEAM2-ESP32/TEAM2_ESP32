@@ -18,7 +18,8 @@
     "relay.h": "c",
     "adc.h": "c",
     "adcread.h": "c",
-    "shell.h": "c"
+    "shell.h": "c",
+    "shell_command.h": "c"
 },
   "idf.portWin": "COM9",
   "idf.flashType": "UART"

@@ -1,3 +1,5 @@
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 #include "commands.h"
 #include "libmcu/shell.h"
 #include "adcread.h"
@@ -10,6 +12,8 @@ shell_cmd_error_t shell_cmd_adcread(int argc, const char *argv[], const void *en
 	}
 
 	const shell_io_t *io = env;
+    char *buffer;
+    buffer = (char*)malloc(sizeof(char));
 
 	int ch = argv[1][0] - '0';
 
@@ -32,7 +36,11 @@ shell_cmd_error_t shell_cmd_adcread(int argc, const char *argv[], const void *en
 		break;
 	}
 
-	adc_read(ch);
+    while(true) {
+        if(io->read(buffer, 1)) return SHELL_CMD_SUCCESS;;
+        adc_read(ch);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+    }
 
 	return SHELL_CMD_SUCCESS;
 }

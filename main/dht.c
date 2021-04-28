@@ -13,7 +13,7 @@ void dht_read(void)
     struct dht_reading dht_data;
 
     dht_result_t res = read_dht_sensor_data((gpio_num_t)DHT_PIN, DHT11, &dht_data);
-    vTaskDelay(200 / portTICK_PERIOD_MS);
+    //vTaskDelay(200 / portTICK_PERIOD_MS);             // In the event of periodic "DHT sensor reading failed". I think it's the difference between hardware(dht).
  
     if (res != DHT_OK) {
         ESP_LOGW(TAG, "DHT sensor reading failed");
@@ -22,5 +22,4 @@ void dht_read(void)
         double humidity = dht_data.humidity;
         ESP_LOGI(TAG, "DHT sensor reading: %4.1f° / %4.1f%%", temperature, humidity);
     }
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
 }

@@ -19,8 +19,8 @@
 #include "wifi.h"
 #include "dht.h"
 
-#define TEST_AP_SSID	""
-#define TEST_AP_PASS	""
+#define TEST_AP_SSID	"your-ssid"
+#define TEST_AP_PASS	"your-password"
 
 
 void app_main(void)
@@ -42,6 +42,7 @@ void app_main(void)
 
     wifi_init();
     wifi_connect(TEST_AP_SSID, TEST_AP_PASS, NULL);
+    vTaskDelay(100 / portTICK_PERIOD_MS);
 
     relay_init();
     adc_init();
