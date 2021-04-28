@@ -9,8 +9,7 @@
 shell_cmd_error_t shell_cmd_dht(int argc, const char *argv[], const void *env)
 {
     const shell_io_t *io = env;
-    char *buffer;
-    buffer = (char*)malloc(sizeof(char));
+    char *buffer = (char*)malloc(sizeof(char));
 
  	unused(argc);
 	unused(argv);
